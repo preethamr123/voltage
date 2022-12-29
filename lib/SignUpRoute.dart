@@ -37,22 +37,18 @@ class SignUpRoute extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 0.0),
-              child: Center(
+               SizedBox(height: 10),
+               Center(
                 child: Container(
-                  child: Image(
-                    height: 300,
-                    width: 300,
-                    image: AssetImage(
-                      'assets/Sign up-cuate.png',
-                    ),
+                  child: Image.asset(
+                    'assets/Sign up-cuate.png',
+                    fit: BoxFit.fill,
+                    width: 250,
                   ),
                 ),
               ),
-            ),
             Container(
-              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
               child: TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(

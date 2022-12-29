@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:voltage/PaymentFailed.dart';
-import 'package:voltage/Survey.dart';
+import 'package:voltage/main.dart';
 
-
-class CreateProfile extends StatefulWidget {
-  @override
-  State<CreateProfile> createState() => _CreateProfileState();
-}
-
-class _CreateProfileState extends State<CreateProfile> {
-  List<String> fruits = ['Apple', 'Banana', 'Grapes', 'Orange', 'Mango'];
-  List<String> selectedFruits = [];
-  int selectedValue = 1;
+class EditProfile extends StatelessWidget {
+  const EditProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +17,7 @@ class _CreateProfileState extends State<CreateProfile> {
               padding: const EdgeInsets.fromLTRB(20.0, 60, 0.0, 0.0),
               child: Container(
                 child: const Text(
-                  'Create Profile',
+                  'Edit  Profile',
                   style: TextStyle(
                       color: Color(0xFF108768),
                       fontSize: 27,
@@ -699,16 +691,16 @@ class _CreateProfileState extends State<CreateProfile> {
                       value: 2,
                     ),
                     DropdownMenuItem(
-                        child: Text("Tumkur"),
-                        value: 3,
+                      child: Text("Tumkur"),
+                      value: 3,
                     ),
                     DropdownMenuItem(
-                        child: Text("Chikamagaluru"),
+                      child: Text("Chikamagaluru"),
                       value: 4,
                     ),
                   ],
                   onChanged: (value){
-                    },
+                  },
                 ),
               ),
             ),
@@ -908,7 +900,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (BuildContext context) =>
-                              Survey()),
+                              voltage()),
                         );
                       },
                       child: Text(
@@ -926,6 +918,7 @@ class _CreateProfileState extends State<CreateProfile> {
           ],
         ),
       ),
+
     );
   }
 }

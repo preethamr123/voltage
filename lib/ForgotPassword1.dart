@@ -56,17 +56,15 @@ class _ForgotPassword1State extends State<ForgotPassword1> {
                 ),
               ),
             ),
+            SizedBox(height: 50),
             Center(
-              child: Container(
-                child: Image(
-                  height: 300,
-                  width: 300,
-                  image: AssetImage(
-                    'assets/Enter OTP-bro.png',
-                  ),
-                ),
+              child: Image.asset(
+                'assets/Enter OTP-bro.png',
+                fit: BoxFit.cover,
+                width: 230,
               ),
             ),
+            SizedBox(height: 50),
             OtpTextField(
               numberOfFields: 6,
               borderColor: Color(0xFFF3F5F7),
@@ -97,11 +95,6 @@ class _ForgotPassword1State extends State<ForgotPassword1> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  OtpTimerButton(
-                    onPressed: () {},
-                    text: Text('Resend OTP'),
-                    duration: 60,
                   ),
                 ],
               ),

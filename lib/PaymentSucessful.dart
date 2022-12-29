@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:voltage/PaymentFailed.dart';
+import 'package:voltage/Trail.dart';
 
 class PaymentSucessfull extends StatelessWidget {
 
@@ -28,17 +30,7 @@ class PaymentSucessfull extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(0.0, 220, 0.0, 0.0),
             child: Container(
               child: Center(
-                child: MaterialButton(
-                  onPressed: () {},
-                  shape: CircleBorder(),
-                  color: Color(0xFFFCD9D9),
-                  padding: EdgeInsets.all(20),
-                  child: Icon(
-                    Icons.done_outlined,
-                    size: 50,
-                    color: Color(0xFF108768),
-                  ),
-                ),
+                child: Image(image: AssetImage('assets/ThankYou.jpeg'),),
               ),
             ),
           ),
@@ -49,7 +41,7 @@ class PaymentSucessfull extends StatelessWidget {
                 child: Text(
                   'Payment Sucessful',
                   style: TextStyle(
-                    color: Color(0XFFF67A7A),
+                    color: Color(0XFF108768),
                     fontSize: 30,
                   ),
                 ),
@@ -65,7 +57,7 @@ class PaymentSucessfull extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xFFA1A7AC),
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
               ),
@@ -73,7 +65,7 @@ class PaymentSucessfull extends StatelessWidget {
           ),
           Center(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+              padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
               child: Container(
                 child: SizedBox(
                   height: 55,
@@ -89,7 +81,7 @@ class PaymentSucessfull extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (BuildContext context) =>
-                            PaymentSucessfull()),
+                            MyApp()),
                       );
                     },
                     child: Text(

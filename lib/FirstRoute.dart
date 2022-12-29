@@ -24,14 +24,13 @@ class FirstRoute extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 70),
             Center(
               child: Container(
-                child: Image(
-                  height: 300,
-                  width: 300,
-                  image: AssetImage(
-                    'assets/Sign up-cuate.png',
-                  ),
+                child: Image.asset(
+                  'assets/Sign up-cuate.png',
+                  fit: BoxFit.fill,
+                  width: 250,
                 ),
               ),
             ),

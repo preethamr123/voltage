@@ -66,9 +66,12 @@ flutter:
   assets:
     - assets/Sign up-cuate.png
     - assets/Forgot password-cuate.png
-    - assets/Enter OTP-bro.png
     - assets/Reset password-pana.png
-    - assets/TrailImage (2).jpeg
+    - assets/Group 11.png
+    - assets/trail.jpeg
+    - assets/ThankYou.jpeg
+    - assets/Group 10.png
+    - assets/Enter OTP-bro.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

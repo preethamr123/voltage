@@ -41,17 +41,15 @@ class ResetPassword extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 60),
             Center(
-              child: Container(
-                child: Image(
-                  height: 300,
-                  width: 300,
-                  image: AssetImage(
-                    'assets/Reset password-pana.png',
-                  ),
-                ),
+              child: Image.asset(
+                'assets/Reset password-pana.png',
+                fit: BoxFit.cover,
+                width: 230,
               ),
             ),
+            SizedBox(height: 60),
             Container(
               padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: TextFormField(

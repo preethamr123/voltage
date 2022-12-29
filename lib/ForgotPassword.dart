@@ -37,19 +37,16 @@ class ForgotPassword extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 50),
             Center(
-              child: Container(
-                child: Image(
-                  height: 300,
-                  width: 300,
-                  image: AssetImage(
-                    'assets/Forgot password-cuate.png',
-                  ),
-                ),
+              child: Image.asset(
+                'assets/Forgot password-cuate.png',
+                fit: BoxFit.cover,
+                width: 230,
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
+              padding: EdgeInsets.fromLTRB(20.0, 60.0, 20.0, 0.0),
               child: TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -81,7 +78,7 @@ class ForgotPassword extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
                 child: Container(
                   child: SizedBox(
                     height: 55,
