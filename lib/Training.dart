@@ -29,7 +29,9 @@ class _TrainingState extends State<Training> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
+              physics: NeverScrollableScrollPhysics(
+
+              ),
               child: Column(children: [
                 Container(
                   width: MediaQuery.of(context).size.width,

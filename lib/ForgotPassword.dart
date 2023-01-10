@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:voltage/ForgotPassword1.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgotPassword extends StatelessWidget {
+
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+
+  late TextEditingController emailController = TextEditingController();
+
+  RegExp email_valid =  RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+
+  bool validateEmail(String email){
+    String _Email = email.trim();
+    if(email_valid.hasMatch(_Email)){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +65,8 @@ class ForgotPassword extends StatelessWidget {
             Container(
               padding: EdgeInsets.fromLTRB(20.0, 60.0, 20.0, 0.0),
               child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                key: _form,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide:
@@ -74,6 +93,19 @@ class ForgotPassword extends StatelessWidget {
                     color: Color(0xFFD3D7DA),
                   ),
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Enter email";
+                  }else{
+                    bool result = validateEmail(value);
+                    if(result){
+                      return null;
+                    }else{
+                      return "Enter proper Email id";
+                    }
+                  }
+                },
+                controller: emailController,
               ),
             ),
             Center(
@@ -90,13 +122,7 @@ class ForgotPassword extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) =>
-                              ForgotPassword1()),
-                        );
-                      },
+
                       child: Text(
                         'Proceed',
                         style: TextStyle(
@@ -104,6 +130,20 @@ class ForgotPassword extends StatelessWidget {
                           fontSize: 20,
                         ),
                       ),
+                      onPressed: () {
+
+                        var  email = emailController.text;
+                        if(email.isNotEmpty && validateEmail(email) )
+                        {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (BuildContext context) =>
+                                  ForgotPassword1()),);
+                              }
+                        else{
+                          Fluttertoast.showToast(msg: "Please add all the information",toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+                        }
+                        }
                     ),
                   ),
                 ),

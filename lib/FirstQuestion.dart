@@ -29,15 +29,6 @@ class _FirstQuestionState extends State<FirstQuestion> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 30,
-                  child: Text(
-                    '',
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  alignment: Alignment.bottomCenter,
                 ),
               ),
               Container(
@@ -120,7 +111,7 @@ class _FirstQuestionState extends State<FirstQuestion> {
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                       primary: Colors.white,
-                                      onPrimary: Colors.orangeAccent,
+
                                       textStyle: TextStyle(fontSize: 14),
                                       side: BorderSide(
                                           color: Colors.tealAccent, width: 2),

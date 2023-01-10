@@ -34,7 +34,7 @@ class _FranchiseState extends State<Franchise> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
                 child: Column(children: [
                   Container(
                     width: MediaQuery.of(context).size.width,

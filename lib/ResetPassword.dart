@@ -1,7 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:voltage/CreateProfile.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ResetPassword extends StatelessWidget {
+
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+
+  final TextEditingController passController = TextEditingController();
+  final TextEditingController confirmPassController = TextEditingController();
+
+  RegExp pass_valid = RegExp(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
+  RegExp confirmpass_valid = RegExp(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
+
+  final _formKey = GlobalKey<FormState>();
+
+  bool validatePassword(String pass){
+    String _password = pass.trim();
+    if(pass_valid.hasMatch(_password)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  bool validateConfirmPassword(String pass){
+    String _confirmpassword = pass.trim();
+    if(confirmpass_valid.hasMatch(_confirmpassword)){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +82,7 @@ class ResetPassword extends StatelessWidget {
             Container(
               padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide:
@@ -83,11 +113,27 @@ class ResetPassword extends StatelessWidget {
                     color: Color(0xFFD3D7DA),
                   ),
                 ),
+                validator: (value){
+                  if(value!.isEmpty){
+                    return "Please enter password";
+                  }else{
+                    //call function to check password
+                    bool result = validatePassword(value);
+                    if(result){
+                      // create account event
+                      return null;
+                    }else{
+                      return " min 8 digits,1 uppercase,i lower";
+                    }
+                  }
+                },
+                controller: passController,
               ),
             ),
             Container(
               padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
               child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide:
@@ -118,6 +164,19 @@ class ResetPassword extends StatelessWidget {
                     color: Color(0xFFD3D7DA),
                   ),
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Enter Confirm password";
+                  }else{
+                    bool result = validateConfirmPassword(value);
+                    if(value!=passController.text){
+                      return "password do not match";
+                    }else{
+                      return null;
+                    }
+                  }
+                },
+                controller: confirmPassController,
               ),
             ),
             Center(
@@ -134,13 +193,7 @@ class ResetPassword extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed:  () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) =>
-                             CreateProfile()),
-                        );
-                      },
+
                       child: Text(
                         'Proceed',
                         style: TextStyle(
@@ -148,6 +201,23 @@ class ResetPassword extends StatelessWidget {
                           fontSize: 20,
                         ),
                       ),
+                      onPressed:  () {
+
+                        var pass = passController.text;
+                        var confirmPass = confirmPassController.text;
+
+                        if(pass.isNotEmpty && confirmPass.isNotEmpty && validatePassword(pass) && validateConfirmPassword(confirmPass)){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (BuildContext context) =>
+                              CreateProfile()),);
+                        }
+                        else
+                          {
+                            Fluttertoast.showToast(msg: "Please add all the information",toastLength: Toast.LENGTH_LONG, gravity:
+                                ToastGravity.CENTER);
+                          }
+                      }
                     ),
                   ),
                 ),

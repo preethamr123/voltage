@@ -31,15 +31,6 @@ class _FifthQuestionState extends State<FifthQuestion> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 30,
-                  child: Text(
-                    '',
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  alignment: Alignment.bottomCenter,
                 ),
               ),
               Container(
