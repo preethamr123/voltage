@@ -261,6 +261,8 @@ class _FirstRouteState extends State<FirstRoute> {
                               builder: (BuildContext context) => SignUpRoute()),
                         );
                       },
+
+
                       child: Text(
                         '  Sign up',
                         style: TextStyle(
