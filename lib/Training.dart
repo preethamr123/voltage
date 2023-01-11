@@ -236,6 +236,8 @@ class _TrainingState extends State<Training> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 onPressed: () {
+
+
                                 },
                                 style: ElevatedButton.styleFrom(
                                     primary: Colors.teal,
@@ -259,3 +261,6 @@ class _TrainingState extends State<Training> {
             )));
   }
 }
+
+
+

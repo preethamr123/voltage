@@ -11,6 +11,12 @@ class CreateProfile extends StatefulWidget {
 }
 
 class _CreateProfileState extends State<CreateProfile> {
+
+   String valueChoose = "States";
+  List listItem = [
+    "States", "karnataka", "kerala", "tamil nadu", "Andra",
+  ];
+
   int selectedValue = 1;
   var _counterText = "";
   var _counterText1 = "";
@@ -900,34 +906,30 @@ class _CreateProfileState extends State<CreateProfile> {
                     ),
                     fillColor: Color(0xFFF3F5F7),
                     filled: true,
-                    hintText: '   State',
+                    hintText: '   States',
                     hintStyle: TextStyle(
                       color: Color(0xFFA1A7AC),
                     ),
                   ),
-                  items: <DropdownMenuItem>[
-                    DropdownMenuItem(
-                      child: Text("Karnataka"),
-                      value: 1,
-                    ),
-                    DropdownMenuItem(
-                      child: Text("Kerala"),
-                      value: 2,
-                    ),
-                    DropdownMenuItem(
-                      child: Text("tamil naadu"),
-                      value: 3,
-                    ),
-                    DropdownMenuItem(
-                      child: Text("uttar pradesh"),
-                      value: 4,
-                    ),
-                  ],
-                  onChanged: (value){
+                  hint: Text("Select Items:"),
+                  dropdownColor: Colors.grey,
+                  value: valueChoose,
+                  onChanged: (newValue){
+                    setState(() {
+                      valueChoose = newValue.toString();
+                    });
                   },
+                  items: listItem.map((valueItem) {
+                    return DropdownMenuItem(
+                      value: valueItem,
+                      child: Text(valueItem),
+                    );
+                  }).toList(),
                 ),
               ),
-            ), Padding(
+            ),
+
+            Padding(
               padding: const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
               child: Container(
                 child: Text(
@@ -1234,7 +1236,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         && business.isNotEmpty && agriculture.isNotEmpty && marketing.isNotEmpty && address.isNotEmpty
                         && village.isNotEmpty && taluk.isNotEmpty && validateName(name) && validateFatherName(father) 
                         && validateMobileNumber(mobile) && validateEmail(email) && validateQualification(qualification) &&
-                        validateCurrent(current) && validateAddress(address) && validateVillage(village) && validateTaluk(taluk)) {
+                        validateCurrent(current) && validateAddress(address) && validateVillage(village) && validateTaluk(taluk))  {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (BuildContext context) =>
@@ -1251,7 +1253,7 @@ class _CreateProfileState extends State<CreateProfile> {
                           color: Colors.white,
                           fontSize: 20,
                         ),
-                      ),
+                      )
                     ),
                   ),
                 ),
@@ -1263,3 +1265,5 @@ class _CreateProfileState extends State<CreateProfile> {
     );
   }
 }
+
+
