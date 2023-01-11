@@ -1066,6 +1066,9 @@ class _CreateProfileState extends State<CreateProfile> {
                       Radius.circular(15.0),
                     ),
                   ),
+
+
+
                   enabledBorder: OutlineInputBorder(
                     borderSide:
                     BorderSide(color: Color(0xFFF3F5F7), width: 2.0),
